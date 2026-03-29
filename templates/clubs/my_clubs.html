@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Mənim Klublarım</h2>
+<ul class="list-group">
+    {% for membership in memberships %}
+        <li class="list-group-item">
+            {{ membership.club.name }} - Qoşulma tarixi: {{ membership.joined_at|date:"d.m.Y H:i" }}
+        </li>
+    {% empty %}
+        <li class="list-group-item">Heç bir kluba qoşulmamısınız.</li>
+    {% endfor %}
+</ul>
+{% endblock %}
